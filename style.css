@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul, ol, li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu{
+    display: flex;
+    justify-content: end;
+    gap: 24px;
+    background-color: rgb(97, 97, 97);
+    color: white;
+    padding: 8px 24px;
+}
+
+.menu li{
+display: flex;
+gap: 4px;
+align-items: center;
+transition: 0.5s;
+}
+
+.menu li:hover{
+    background-color: red;
+}
+
+.menu img{
+    height: 24px;
+}

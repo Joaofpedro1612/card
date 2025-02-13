@@ -8,10 +8,10 @@ const categorias = [
 ];
 
 const produtos = [
-    { nome: 'Persona 5 Royal midia física para PS5', descricao: 'Prepare-se para uma experiência inédita de RPG com Persona 5 Royal, com base no universo da premiada série Persona! Ponha a máscara de Joker e junte-se aos Phantom Thieves of Hearts.', preco: 199.99, imagem: 'p5r.png', avaliacao: 5 },
-    { nome: 'Persona 4 Golden midia física para Nintendo Switch', descricao: 'O mundialmente conhecido Persona 4 Golden promete aventura inesquecíveis, laços inquebráveis e experiências emotivas compartilhadas com amigos.', preco: 79.99, imagem: 'p4g.png', avaliacao: 5 },
-    { nome: 'Persona 3 reload midia digital para Xbox Series.', descricao: 'Um estudante transferido descobre um destino inesperado ao entrar na "hora oculta" entre os dias. Despertando um poder extraordinário, ele investiga a enigmática Hora Sombria, luta por seus amigos e deixa uma marca eterna nas memórias deles.', preco: 249.99, imagem: 'p3Re.png', avaliacao: 5 },
-    { nome: 'Shin Megami Tensei V: Vengeance midia física para Nintendo Switch', descricao: 'Antes que demônios tirem sua vida, surge um salvador e ambos se unem para assumir a forma de um ser poderoso: um Nahobino. Com este novo poder, o protagonista precisa fazer seu próprio caminho por este reino enigmático.', preco: 219.99, imagem: 'smtV.png', avaliacao: 4 }
+    { nome: 'Persona 5 Royal midia física para PS5', descricao: 'Prepare-se para uma experiência inédita de RPG com Persona 5 Royal, com base no universo da premiada série Persona! Ponha a máscara de Joker e junte-se aos Phantom Thieves of Hearts.', preco: 199.99, imagem: 'p5r.png', avaliacao: 5, corBotao: 'blue', corBotao: '	#d92323'},
+    { nome: 'Persona 4 Golden midia física para Nintendo Switch', descricao: 'O mundialmente conhecido Persona 4 Golden promete aventura inesquecíveis, laços inquebráveis e experiências emotivas compartilhadas com amigos.', preco: 79.99, imagem: 'p4g.png', avaliacao: 5, corBotao: '	#ffe52c' },
+    { nome: 'Persona 3 reload midia digital para Xbox Series.', descricao: 'Lançado pela Atlus, Persona 3 Reload oferece uma experiência única, mergulhando os jogadores na Academia Gekkoukan, onde criaturas sobrenaturais chamadas Personas despertam.', preco: 249.99, imagem: 'p3Re.png', avaliacao: 5, corBotao: '#00bbfa' },
+    { nome: 'Shin Megami Tensei V: Vengeance  para Nintendo Switch', descricao:'Um salvador surge para ajudar o protagonista a se unir a ele e formar um Nahobino, um ser poderoso. Juntos, eles devem trilhar seu caminho por um reino enigmático.', preco: 219.99, imagem: 'smtV.png', avaliacao: 4, corBotao: '#000000' }
 ];
 
 function criarMenu(categoria) {
@@ -55,9 +55,10 @@ function criarCard(produto) {
 
     const botao = document.createElement('button');
     botao.textContent = 'Comprar agora!';
-
+    botao.style.backgroundColor = produto.corBotao;
     botao.addEventListener('click', () => {
         alert(`Você comprou: ${produto.nome}`);
+     
     });
 
     card.appendChild(imagem);

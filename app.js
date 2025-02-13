@@ -1,21 +1,18 @@
 'use strict';
 
-// Dados para o menu
 const categorias = [
-    { nome: 'Celulares', icon: 'telefone.png', cor: 'red' },
-    { nome: 'Informatica', icon: 'pc.png', cor: 'blue' },
+    { nome: 'Celulares', icon: 'celular.png', cor: 'red' },
+    { nome: 'Informatica', icon: 'monitor.png', cor: 'blue' },
     { nome: 'Games', icon: 'controle.png', cor: 'pink' },
-    { nome: 'Moveis', icon: 'mesa.png', cor: 'green' }
+    { nome: 'Moveis', icon: 'movel.png', cor: 'green' }
 ];
-
 
 const produtos = [
-    { nome: 'Persona 5 Royal midia física para PS5', descricao: 'Prepare-se para um experiência inédita de RPG com Persona5 Royal, com base no universo da premiada série Persona! Ponha a máscara de Joker e junte-se aos Phantom Thieves of Hearts.', preco: 200.00, imagem: 'p5r.png', avaliacao: 4 },
-    { nome: 'Persona 4 Golden midia física para Nintendo switch', descricao: 'O mundialmente conhecido Persona 4 Golden promete aventura inesquecíveis, laços inquebráveis e experiências emotivas compartilhadas com amigos.', preco: 40.00, imagem: 'p4g.png', avaliacao: 5 },
-    { nome: 'Watch', descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', preco: 70.84, imagem: 'watch.png', avaliacao: 3 },
-    { nome: 'Mobile', descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', preco: 1000.84, imagem: 'mobile.png', avaliacao: 4 }
+    { nome: 'Persona 5 Royal midia física para PS5', descricao: 'Prepare-se para uma experiência inédita de RPG com Persona 5 Royal, com base no universo da premiada série Persona! Ponha a máscara de Joker e junte-se aos Phantom Thieves of Hearts.', preco: 199.99, imagem: 'p5r.png', avaliacao: 5 },
+    { nome: 'Persona 4 Golden midia física para Nintendo Switch', descricao: 'O mundialmente conhecido Persona 4 Golden promete aventura inesquecíveis, laços inquebráveis e experiências emotivas compartilhadas com amigos.', preco: 79.99, imagem: 'p4g.png', avaliacao: 5 },
+    { nome: 'Persona 3 reload midia digital para Xbox Series.', descricao: 'Um estudante transferido descobre um destino inesperado ao entrar na "hora oculta" entre os dias. Despertando um poder extraordinário, ele investiga a enigmática Hora Sombria, luta por seus amigos e deixa uma marca eterna nas memórias deles.', preco: 249.99, imagem: 'p3Re.png', avaliacao: 5 },
+    { nome: 'Shin Megami Tensei V: Vengeance midia física para Nintendo Switch', descricao: 'Antes que demônios tirem sua vida, surge um salvador e ambos se unem para assumir a forma de um ser poderoso: um Nahobino. Com este novo poder, o protagonista precisa fazer seu próprio caminho por este reino enigmático.', preco: 219.99, imagem: 'smtV.png', avaliacao: 4 }
 ];
-
 
 function criarMenu(categoria) {
     const novoItem = document.createElement('li');
@@ -32,7 +29,6 @@ function criarMenu(categoria) {
 
     lista.appendChild(novoItem);
 }
-
 
 function criarCard(produto) {
     const card = document.createElement('div');
@@ -53,7 +49,6 @@ function criarCard(produto) {
     preco.classList.add('price');
     preco.textContent = `$${produto.preco.toFixed(2)}`;
 
-  
     const avaliacao = document.createElement('div');
     avaliacao.classList.add('avaliacao');
     avaliacao.innerHTML = criarEstrelas(produto.avaliacao);
@@ -61,22 +56,19 @@ function criarCard(produto) {
     const botao = document.createElement('button');
     botao.textContent = 'Comprar agora!';
 
-
     botao.addEventListener('click', () => {
         alert(`Você comprou: ${produto.nome}`);
     });
 
- 
     card.appendChild(imagem);
     card.appendChild(titulo);
     card.appendChild(descricao);
     card.appendChild(preco);
-    card.appendChild(avaliacao); 
+    card.appendChild(avaliacao);
     card.appendChild(botao);
 
     return card;
 }
-
 
 function adicionarCards() {
     const container = document.querySelector('.cards-container');
@@ -86,8 +78,6 @@ function adicionarCards() {
     });
 }
 
-
-
 function criarEstrelas(avaliacao) {
     const estrelasCheias = Math.floor(avaliacao); 
     const temMeiaEstrela = avaliacao % 1 !== 0; 
@@ -95,17 +85,14 @@ function criarEstrelas(avaliacao) {
 
     let estrelasHTML = '';
 
-   
     for (let i = 0; i < estrelasCheias; i++) {
         estrelasHTML += '⭐';
     }
 
- 
     if (temMeiaEstrela) {
         estrelasHTML += '½';
     }
 
-    
     for (let i = 0; i < estrelasVazias; i++) {
         estrelasHTML += '☆';
     }
@@ -113,7 +100,9 @@ function criarEstrelas(avaliacao) {
     return estrelasHTML;
 }
 
-
-
-
-adicionarCards();
+document.addEventListener('DOMContentLoaded', () => {
+    categorias.forEach(categoria => {
+        criarMenu(categoria);
+    });
+    adicionarCards();
+});
